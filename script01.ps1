@@ -6,4 +6,8 @@ $login = Read-Host "Merci de Rentrer le login de l'Utilisateur à Créer"
 
 $mdp = Read-Host "Merci de Rentrer le Mot de Passe de l'Utilisateur à Créer"
 
+#Création du user, mail et mdp Force
 New-ADUser -Name $nom -SamAccountName $login -UserPrincipalName $login@acme.fr -AccountPassword (ConvertTo-SecureString -AsPlainText $mdp -Force) -PasswordNeverExpires $true -CannotChangePassword $true -Enabled $true
+
+#Création du dossier du user dans C:
+New-Item -Path "C:\PARTAGE DES DOSSIERS\$nom" -ItemType Directory
