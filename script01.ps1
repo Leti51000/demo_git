@@ -11,3 +11,6 @@ New-ADUser -Name $nom -SamAccountName $login -UserPrincipalName $login@acme.fr -
 
 #Création du dossier du user dans C:
 New-Item -Path "C:\PARTAGE DES DOSSIERS\$nom" -ItemType Directory
+
+#Création du partage de ce dossier en Fullaccess
+New-SmbShare -Name $nom -Path "C:\PARTAGE DES DOSSIERS\$Nom" -FullAccess Administrateur
